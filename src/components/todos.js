@@ -28,8 +28,8 @@ export const Todos = () => {
   const { loading, error, data, refetch } = useQuery(getAllTodos, {
     notifyOnNetworkStatusChange: true,
   })
-  const [createTodo, { loading: todoLoading }] = useMutation(createTodos)
-  const [deleteTodo, { loading: removeLoading }] = useMutation(removeTodo)
+  const [createTodo, { loading: todoLoading , error : todoError }] = useMutation(createTodos)
+  const [deleteTodo, { loading: removeLoading , error: removeError }] = useMutation(removeTodo)
 
   const handleSubmit = async e => {
     e.preventDefault()
@@ -60,10 +60,12 @@ export const Todos = () => {
         />
         <button>add Todo</button>
       </form>
-      {error && <p style={{fontWeight : "bold"}}>error ocuurs</p>}
+      {todoError && <p style={{fontWeight : "bold"}}>error in saving data</p>}
+      {removeError && <p style={{fontWeight : "bold"}}>error in removing data</p>}
+      {error && <p style={{fontWeight : "bold"}}>error in getting data</p>}
       {loading && <p style={{fontWeight : "bold"}}>loading data ...</p>}
-      {data &&
-        data?.getTodos?.map((item, index) => (
+      {data && 
+         data?.getTodos?.map((item, index) => (
           <div
             key={index}
             style={{
