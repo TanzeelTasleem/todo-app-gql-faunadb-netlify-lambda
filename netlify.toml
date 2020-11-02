@@ -1,4 +1,4 @@
 [build]
-  command = "yarn build && cd functions/graphql && npm i"
-  publish = "public/"
-  functions = "functions/"
+  command = "yarn build"
+  publish = "public"
+  functions = "functions"
