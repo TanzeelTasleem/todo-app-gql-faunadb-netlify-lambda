@@ -2,5 +2,3 @@
   command = "yarn build"
   functions = "functions/graphql"
   publish = "public/"
-  [context.production]
-     enviroment = {FAUNA_SECRET = "fnAD5PYjo4ACBx7Np3GxwRl1IpdqWUKZPbtIocFI"}
