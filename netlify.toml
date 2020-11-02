@@ -1,4 +1,4 @@
 [build]
-  command = "yarn build && cd functions/ && yarn"
+  command = "yarn build && cd functions/graphql && yarn"
   publish = "public/"
   functions = "functions/"
